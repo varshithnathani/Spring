@@ -1,0 +1,99 @@
+Spring Core Module:
+
+	a) BeanFactory Container(Advanced Container)
+	b) ApplicationContext Container = BeanFactory Container + (Extension BeanFactory Container)
+
+
+Container?
+==========
+	Container is software program / app thta manages whole life cycle of given resource(classc/ file) from birth to death( Object creation to object destruction)
+
+	Eg: 
+		ServletContainer: Manages the life cycle of servlet comps. (Servlet Classes)
+		Spring Container: (BeanFactory, ApplicationContext) --> Manages the life cycle of spring beans.
+
+What is Spring Bean?
+====================
+	Any java class whose obj is created and managed by spring container is called spring bean.
+
+Once we give java class to spring container as spring bean, then onwards the following operations on the spring bean will be taken care by spring controller.
+		(Spring Bean Life Cycle)
+	a) Loading that java class
+	b) Creating obj for that java class(Spring bean)
+	c) managing object of spring bean
+	d) destroying the object of spring bean 
+
+
+
+
+ Spring Bean can be a pre-defined class (or) user-defined (or) third party supplied class whose obj is created and managed by spring controller.
+
+All Containers internally use JRE/JVM support to words managing the life cycle of given resource(class/file)
+	Any reusable class/file is called component
+		Ex: servlet Comp, jsp comp, spring bean comp and etc..
+
+
+Diff b/w Java Bean and Spring bean?
+===================================
+	java bean is java class that is developed having standards mainly setters and getters methods. it is always used as helper class to bind multiple values into single obj to send those multiple values from one class/layer to another class/layer as single object.
+
+	SpringBean is java class whose object is created and managed by spring controller. generally spring bean classes maintain important logics of the application like business logic and persistence logic. 
+
+
+
+To make spring container taking certain as spring bean. we need to config that java class either using xml tag <bean> using annotation(@Component)
+
+=> Passing info about class/code/file to underlying server/container/framework is called configuration. 
+
+xml tag based cfg is old style --> xml convert the java to spring 
+XML :  <bean id="ar" class="com.example.demo"/> 
+
+Annotation based:
+
+@Component("ar")
+public class demo{
+....
+}  
+
+
+============================================================================================================================================================
+
+Spring Container are light weight containers bcz they can be created by initializing(Obj creation) one or other pre-defined java class given by spring api. in this process we need to pass the spring bean cfg file(xml file) as the input file
+
+ApplicationContext container ==> org.springframework.context.ApplicationContext()
+
+There are multiple implementation classes for org.springframework.context.ApplicationContext()
+	like: 
+		FileSystemXmlApplicationContext
+		AnnotationConfigApplicationContext
+		XmlWebApplication
+		& etc.. 
+	By creating obj for one of these classes we can keep ApplicationContext container ready.
+
+Eg: FileSystemXmlApplicationContext ctx = new FileSystemXmlApplicationContext("../applicationContext.xml");
+// Name and location of spring bean cfg file
+// any <fileName>.xml can be taken as spring bean cfg file but the recommended name is applicationContext.xml
+
+
+The Spring containers are actually given to perform two important operations on spring beans
+	a) Spring bean life cycle management
+	b) Dependency Management(Arranging dependent spring bean class obj for main/target spring bean class obj)
+
+
+Why Spring containers are called IOC Container?
+===============================================
+
+	IOC: Inversion of Control
+
+In traditional core java app loading classes, creating obj,  assign one obj to another obj & etc.. operations should be done by programmer i.e; control is with the programmers.
+In Spring application all the above said applications are done by spring container i.e; control is with spring container. which is nothing but reverse/ IOC.
+
+Final Note: Spring container is called IOC container bcz it takes care of every thing by taking control from programmer.
+
+
+
+
+
+
+
+	
