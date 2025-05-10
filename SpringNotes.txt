@@ -92,6 +92,41 @@ Final Note: Spring container is called IOC container bcz it takes care of every 
 
 
 
+===================================================================================================================================================
+
+Dependent Management is Spring:
+------------------------------
+	a) Dependency Lookup
+	b) Dependency Injection
+
+Diff Ways of implementing dependency injection in spring
+	1) setter injection
+	2) constructor injection
+	3) Flled Injection
+	4) Arbitary Method Injection
+
+Setter Injection: If the underlying IOC Container/ Spring container uses setter method to target class to assign/inject dependent class obj to target class obj then it is called setter injection.
+For this we need to use
+	@Autowired annotation in annotation based cfg
+	<property> tag in xml based cfgs
+
+@Component is given to cfg java class as the spring bean(i.e, making the IOC container to create java class obj)
+@Autowired is given to cfg Dependency Injection either using setter method or constructor or filed or arbitary method
+
+In XML driven cfg, we use <bean> tag to cfg java class as spring bean and <property> tag to cfg bean property for setter injection
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
