@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean definition for Alien -->
+    <!-- By default scope = "singleton"  if we change it to prototype we can get different obj om execution -->
+    
+    <!-- <bean id="alien" class="com.pack.Alien" scope ="prototype">
+    	<property name="age" value="21"></property>
+    	By using the property we can set the value.
+    	
+    	<property name="lap" ref="lap1"></property>
+    	By using the ref attributes we can create obj -> check Alien class there we initalized lap and created obj using ref atttributes
+    			and created the setter and getter method for lap in alien class
+    	
+    	 
+    	 
+    	 
+    	 <constructor-arg value="21"></constructor-arg>
+    	 <constructor-arg ref="lap1"></constructor-arg>
+    	 
+     </bean> -->
+     
+     <bean id="alien" class="com.pack.Alien" scope="prototype">
+    	<property name="age" value="21"/>
+    	<property name="com" ref="lap1"/>
+	</bean>
+     
+    
+    <bean id="lap1" class="com.pack.Laptop"></bean>
+    
+</beans>
