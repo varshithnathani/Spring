@@ -1,0 +1,38 @@
+How To Run Spring Boot Application in Linux (WSL)
+
+Step1: 	Install Java -> sudo apt install default-jdk -y
+Step2: 	Install maven -> sudo apt install maven -y
+
+Step3: 	Generate a project from start.spring.io  or use curl to get the project
+Step4:	In WSL, you can directly access your Windows filesystem under /mnt.
+Step5: 	unzip demo.zip -d demo
+
+Step6: 	cd demo
+Step7: 	./mvnw spring-boot:run
+Step8: 	localhost:8080
+
+Step9: add GetMapping to DemoApplication
+
+			package com.example.demo;
+
+			import org.springframework.boot.SpringApplication;
+			import org.springframework.boot.autoconfigure.SpringBootApplication;
+			import org.springframework.web.bind.annotation.GetMapping;
+			import org.springframework.web.bind.annotation.RestController;
+
+			@SpringBootApplication
+			@RestController
+			public class DemoApplication {
+
+				public static void main(String[] args) {
+					SpringApplication.run(DemoApplication.class, args);
+				}
+
+				@GetMapping("/")
+				public String home() {
+					return "Hello from Spring Boot!";
+				}
+			}
+
+
+Step10:	re-run
